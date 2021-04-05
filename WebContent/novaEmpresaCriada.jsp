@@ -1,5 +1,5 @@
 <%
-	String nomeEmpresa = "Google";
+	String nomeEmpresa = (String)request.getAttribute("empresa");
 %>
 
 <html>
