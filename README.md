@@ -4,9 +4,9 @@
 
 <p align="justify"> 
 
-/gerenciador - inicial.
-/gerenciador/formNovaEmpresa.jsp para cadastrar novas empresas. 
-/gerenciador/listaEmpresas para cadastrar novas empresas.
+/gerenciador - inicial. </br>
+/gerenciador/formNovaEmpresa.jsp para cadastrar novas empresas. </br>
+/gerenciador/listaEmpresas para cadastrar novas empresas. </br>
 gerenciador/mostraEmpresa?id= para alteração de empresas já criadas.
 
 </p>
