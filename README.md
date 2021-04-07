@@ -1,8 +1,3 @@
-# gerenciador
-Estudando os Servlets
-
-<b>
-
 <h1 align="center"> Estudando os Servlets </h1>
 
 ## Rotas
