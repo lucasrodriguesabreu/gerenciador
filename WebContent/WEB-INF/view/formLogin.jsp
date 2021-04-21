@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Cadastro de Empresa</title>
+<title>Efetue o seu login</title>
 </head>
 <body>
 

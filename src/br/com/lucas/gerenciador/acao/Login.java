@@ -6,6 +6,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.lucas.gerenciador.modelo.Banco;
+import br.com.lucas.gerenciador.modelo.Usuario;
+
 public class Login implements Acao {
 
 	@Override
@@ -15,7 +18,15 @@ public class Login implements Acao {
 		
 		System.out.println("Usuário " + login + " logado com sucesso!");
 		
-		return "redirect:entrada?acao=ListaEmpresas";
+		Banco banco = new Banco();
+		Usuario usuario = banco.existeUsuario(login, senha);
+		
+		if(usuario != null) {
+			System.out.println("Usuário existe");
+			return "redirect:entrada?acao=ListaEmpresas";
+		}else {
+			return "redirect:entrada?acao=LoginForm";
+		}			
 	}
 
 }
