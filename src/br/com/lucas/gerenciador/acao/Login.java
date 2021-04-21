@@ -17,17 +17,19 @@ public class Login implements Acao {
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
 		
-		System.out.println("Usuário " + login + " logado com sucesso!");
+		//System.out.println("Usuário " + login + " logado com sucesso!");
 		
 		Banco banco = new Banco();
 		Usuario usuario = banco.existeUsuario(login, senha);
 		
 		if(usuario != null) {
-			System.out.println("Usuário existe");
+			System.out.println("Usuário " + login + " existe!");
 			HttpSession sessao = request.getSession();
 			sessao.setAttribute("usuarioLogado", usuario);
+			System.out.println("Usuário " + login + " logado com sucesso!");
 			return "redirect:entrada?acao=ListaEmpresas";
 		} else {
+			System.out.println("Usuário " + login + " não existe e portanto não foi possível fazer login!");
 			return "redirect:entrada?acao=LoginForm";
 		}			
 	}

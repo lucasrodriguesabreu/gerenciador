@@ -8,10 +8,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Java Standard Taglib</title>
+<title>Lista de empresas cadastradas</title>
 </head>
 <body>
-
+	<c:import url="logout-parcial.jsp" />
 	Usuário ${usuarioLogado.login } logado!
 	
 	<br>
