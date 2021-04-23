@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
 
 import br.com.lucas.gerenciador.modelo.Banco;
@@ -22,7 +23,12 @@ public class EmpresasService extends HttpServlet {
 		
 		List<Empresa> empresas = new Banco().getEmpresas();
 		
-//Usando XML		
+		String valor = request.getHeader("Accept");
+		
+		System.out.println(valor);
+		
+		
+		if(valor.contains("xml")) {
 		
 		XStream xstream = new XStream();
 		xstream.alias("empresa", Empresa.class);
@@ -30,14 +36,15 @@ public class EmpresasService extends HttpServlet {
 		
 		response.setContentType("application/xml");
 		response.getWriter().print(xml);
-		
-// Usando json		
-//		Gson gson = new Gson();
-//		String json = gson.toJson(empresas);
-//		
-//		response.setContentType("application/json");
-//		response.getWriter().print(json);
-		
+		} else if(valor.contains("json")) {
+			Gson gson = new Gson();
+			String json = gson.toJson(empresas);
+			
+			response.setContentType("application/json");
+			response.getWriter().print(json);
+		}else {
+			response.setContentType("application/json");
+			response.getWriter().print("{'message': 'Não há conteúdo'}");
+		}		
 	}
-
 }
